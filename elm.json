@@ -3,7 +3,7 @@
     "name": "holmusk/timed-cache",
     "summary": "Work with cached values",
     "license": "BSD-3-Clause",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "exposed-modules": [
         "TimedCache"
     ],
