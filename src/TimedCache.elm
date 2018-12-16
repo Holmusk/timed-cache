@@ -42,13 +42,14 @@ init task maxAge a =
       , lastFetched = Nothing
       , fetch = task
       }
-    cmd = fetchValue model
+    cmd = Task.perform UpdateLastFetched Time.now
   in
     (model, cmd)
 
 type Msg e a =
     Tick Posix
   | NewValue (Result e a)
+  | UpdateLastFetched Posix
 
 {-|-}
 update : Model e a -> Msg e a -> (Model e a, Cmd (Msg e a))
@@ -56,6 +57,7 @@ update model msg =
   case msg of
     Tick now -> handleTick model now
     NewValue newValue -> handleNewValue model newValue
+    UpdateLastFetched now -> ({model | lastFetched = Just now }, Cmd.none)
 
 handleTick : Model e a -> Posix -> (Model e a, Cmd (Msg e a))
 handleTick model now =

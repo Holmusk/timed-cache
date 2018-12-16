@@ -45,7 +45,7 @@ update model msg =
 sub : Model -> Sub Msg
 sub model =
   Sub.batch
-    [ TC.sub model.notifications
+    [ Sub.map NotificationMsg <| TC.sub model.notifications
     , ... -- Other subscriptions you may need
     ]
 
