@@ -1,10 +1,3 @@
-# timed-cache
-
-An elm module to help manage data that is fetched via tasks and is updated on a timer independent of the actions in your application. This can be useful for data that you have to fetch via API but don't have to update as ofen as the UI does. An example of this might be things like number of pending notifications.
-
-An example of how to use this module:
-
-```elm
 module Main exposing (..)
 
 import Browser exposing (Document)
@@ -67,4 +60,3 @@ main =
     , update = update
     , subscriptions = sub
     }
-```
